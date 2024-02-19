@@ -20,6 +20,10 @@ export const App = () => {
 
   const totalFeedback = cliks.good + cliks.neutral + cliks.bad;
 
+  const positiv = Math.round(
+    ((cliks.good + cliks.neutral) / totalFeedback) * 100
+  );
+
   return (
     <div>
       <Description />
@@ -28,7 +32,13 @@ export const App = () => {
         totalFeedback={totalFeedback}
         Setcliks={Setcliks}
       />
-      {totalFeedback >= 1 && <Feedback value={cliks} />}
+      {totalFeedback >= 1 && (
+        <Feedback
+          value={cliks}
+          totalFeedback={totalFeedback}
+          positiv={positiv}
+        />
+      )}
       {totalFeedback < 1 && <Notification />}
     </div>
   );
