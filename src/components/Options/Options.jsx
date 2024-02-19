@@ -1,10 +1,10 @@
 import style from "./Options.module.css";
 
-export const Options = ({ onTrack }) => {
+export const Options = ({ onTrack, totalFeedback, Setcliks }) => {
   return (
     <div>
       <button className={style.btn} onClick={() => onTrack("good")}>
-        Goog
+        Good
       </button>
       <button className={style.btn} onClick={() => onTrack("neutral")}>
         Neutral
@@ -12,6 +12,22 @@ export const Options = ({ onTrack }) => {
       <button className={style.btn} onClick={() => onTrack("bad")}>
         Bad
       </button>
+      {totalFeedback > 0 && (
+        <>
+          <button
+            className={style.btn}
+            onClick={() => {
+              Setcliks({
+                good: 0,
+                neutral: 0,
+                bad: 0,
+              });
+            }}
+          >
+            Reset
+          </button>
+        </>
+      )}
     </div>
   );
 };

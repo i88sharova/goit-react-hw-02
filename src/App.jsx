@@ -23,7 +23,11 @@ export const App = () => {
   return (
     <div>
       <Description />
-      <Options onTrack={(feedbackType) => updateFeedback(feedbackType)} />
+      <Options
+        onTrack={(feedbackType) => updateFeedback(feedbackType)}
+        totalFeedback={totalFeedback}
+        Setcliks={Setcliks}
+      />
       {totalFeedback >= 1 && <Feedback value={cliks} />}
       {totalFeedback < 1 && <Notification />}
     </div>
