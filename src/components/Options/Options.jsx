@@ -1,6 +1,6 @@
 import style from "./Options.module.css";
 
-export const Options = ({ onTrack, totalFeedback, Setcliks }) => {
+export const Options = ({ onTrack, totalFeedback, setCliks }) => {
   return (
     <div>
       <button className={style.btn} onClick={() => onTrack("good")}>
@@ -17,7 +17,7 @@ export const Options = ({ onTrack, totalFeedback, Setcliks }) => {
           <button
             className={style.btn}
             onClick={() => {
-              Setcliks({
+              setCliks({
                 good: 0,
                 neutral: 0,
                 bad: 0,

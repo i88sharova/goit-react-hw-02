@@ -1,0 +1,9 @@
+ul {
+  padding: 8px;
+  list-style-type: none;
+}
+
+li {
+  width: 120px;
+  margin-bottom: 8px;
+}

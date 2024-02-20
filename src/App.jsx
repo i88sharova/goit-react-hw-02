@@ -16,13 +16,13 @@ const getFeedback = () => {
 };
 
 export const App = () => {
-  const [cliks, Setcliks] = useState(getFeedback);
+  const [cliks, setCliks] = useState(getFeedback);
 
   const updateFeedback = (feedbackType) => {
-    Setcliks{
+    setCliks({
       ...cliks,
       [feedbackType]: cliks[feedbackType] + 1,
-    };
+    });
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export const App = () => {
       <Options
         onTrack={(feedbackType) => updateFeedback(feedbackType)}
         totalFeedback={totalFeedback}
-        Setcliks={Setcliks}
+        setCliks={setCliks}
       />
       {totalFeedback >= 1 && (
         <Feedback
