@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Description } from "./components/Description/Description";
 import { Feedback } from "./components/Feedback/Feedback";
 import { Options } from "./components/Options/Options";
 import { Notification } from "./components/Notification/Notification";
 
-const feedback = () => {
+const getFeedback = () => {
   const feedbackValue = localStorage.getItem("feedback");
   return feedbackValue !== null
     ? JSON.parse(feedbackValue)
@@ -17,18 +16,15 @@ const feedback = () => {
 };
 
 export const App = () => {
-  const [cliks, Setcliks] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  });
+  const [cliks, Setcliks] = useState(getFeedback);
 
   const updateFeedback = (feedbackType) => {
-    Setcliks({
+    Setcliks{
       ...cliks,
       [feedbackType]: cliks[feedbackType] + 1,
-    });
+    };
   };
+
   useEffect(() => {
     localStorage.setItem("feedback", JSON.stringify(cliks));
   }, [cliks]);
